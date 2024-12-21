@@ -14,7 +14,7 @@ interface BlurFadeProps {
   delay?: number;
   yOffset?: number;
   inView?: boolean;
-  inViewMargin?: string;
+  inViewMargin?: any;
   blur?: string;
 }
 const BlurFade = ({
@@ -25,7 +25,7 @@ const BlurFade = ({
   delay = 0,
   yOffset = 6,
   inView = false,
-  inViewMargin = "-50px",
+  inViewMargin,
   blur = "6px",
 }: BlurFadeProps) => {
   const ref = useRef(null);
@@ -40,9 +40,9 @@ const BlurFade = ({
     <AnimatePresence>
       <motion.div
         ref={ref}
-        initial="hidden"
+        initial='hidden'
         animate={isInView ? "visible" : "hidden"}
-        exit="hidden"
+        exit='hidden'
         variants={combinedVariants}
         transition={{
           delay: 0.04 + delay,
